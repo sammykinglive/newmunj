@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Vault | Aethel Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loginstyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="dashboard-page">
+  <!-- secure dashboard header -->
+  <header class="dashboard-header">
+    <div class="container">
+      <div class="dashboard-nav">
+        <div class="logo">
+          <i class="fas fa-shield-alt"></i> 
+          <span>AETHEL<span class="vault">VAULT</span></span>
+        </div>
+        <div class="user-menu">
+          <span class="welcome-text">Welcome, <span id="displayMemberId">Member</span></span>
+          <div class="user-avatar">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <a href="login.html" class="logout-btn" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD MAIN CONTENT -->
+  <main class="dashboard-main">
+    <div class="container">
+      <!-- secure status bar -->
+      <div class="security-status">
+        <div class="status-item">
+          <i class="fas fa-shield-alt"></i>
+          <span>Secure Connection • Zurich Node</span>
+        </div>
+        <div class="status-item">
+          <i class="fas fa-clock"></i>
+          <span>Last Access: <span id="lastAccess">Just now</span></span>
+        </div>
+        <div class="status-item">
+          <i class="fas fa-qrcode"></i>
+          <span>Session ID: <span id="sessionId">4G7X-KL92-8MN3</span></span>
+        </div>
+      </div>
+
+      <!-- welcome banner with financial overview -->
+      <div class="welcome-banner">
+        <h1>Your Secure Asset Dashboard</h1>
+        <div class="financial-overview">
+          <!-- Total Vault Value -->
+          <div class="overview-card total-value">
+            <div class="overview-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="overview-details">
+              <span class="overview-label">Total Vault Value (USD)</span>
+              <span class="overview-amount" id="totalVaultValue">$12,847,500</span>
+            </div>
+          </div>
+
+          <!-- Demurrage Fee -->
+          <div class="overview-card demurrage-fee">
+            <div class="overview-icon">
+              <i class="fas fa-hourglass-half"></i>
+            </div>
+            <div class="overview-details">
+              <span class="overview-label">Demurrage Fee (Annual)</span>
+              <span class="overview-amount" id="demurrageFee">$38,542.50</span>
+              <span class="overview-note">0.3% p.a.</span>
+            </div>
+          </div>
+
+          <!-- Amount Paid -->
+          <div class="overview-card amount-paid">
+            <div class="overview-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="overview-details">
+              <span class="overview-label">Amount Paid (YTD)</span>
+              <span class="overview-amount" id="amountPaid">$19,271.25</span>
+              <span class="overview-note">Last payment: Mar 15, 2025</span>
+            </div>
+          </div>
+
+          <!-- Outstanding Balance -->
+          <div class="overview-card outstanding">
+            <div class="overview-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="overview-details">
+              <span class="overview-label">Outstanding Balance</span>
+              <span class="overview-amount" id="outstandingBalance">$19,271.25</span>
+              <span class="overview-note">Due: Jun 30, 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEMBER DETAILS SECTION -->
+      <div class="member-details-section">
+        <h2><i class="fas fa-id-card"></i> Member Details</h2>
+        <div class="details-grid" id="memberDetails">
+          <div class="detail-item">
+            <span class="detail-label">Full Name</span>
+            <span class="detail-value" id="memberName">Jonathan A. Harrington III</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Address</span>
+            <span class="detail-value" id="memberAddress">Via Privata Fiorita 12, 6900 Lugano, Switzerland</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Next of Kin</span>
+            <span class="detail-value" id="memberNextOfKin">Elizabeth Harrington-Windsor</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Date of Deposit</span>
+            <span class="detail-value" id="memberDepositDate">March 17, 2023</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Name of Depositor</span>
+            <span class="detail-value" id="memberDepositor">Harrington Family Trust</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment History Section -->
+      <div class="payment-history-section">
+        <h2><i class="fas fa-history"></i> Demurrage Fee Payment History</h2>
+        <div class="payment-table-container">
+          <table class="payment-table">
+            <thead>
+              <tr>
+                <th>Period</th>
+                <th>Fee Amount</th>
+                <th>Status</th>
+                <th>Payment Date</th>
+                <th>Transaction ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Q1 2025 (Jan-Mar)</td>
+                <td>$9,635.63</td>
+                <td><span class="status-paid">Paid</span></td>
+                <td>Mar 15, 2025</td>
+                <td>DEM-2025-0012</td>
+              </tr>
+              <tr>
+                <td>Q4 2024 (Oct-Dec)</td>
+                <td>$9,635.62</td>
+                <td><span class="status-paid">Paid</span></td>
+                <td>Dec 18, 2024</td>
+                <td>DEM-2024-0893</td>
+              </tr>
+              <tr>
+                <td>Q3 2024 (Jul-Sep)</td>
+                <td>$9,525.50</td>
+                <td><span class="status-paid">Paid</span></td>
+                <td>Sep 22, 2024</td>
+                <td>DEM-2024-0671</td>
+              </tr>
+              <tr>
+                <td>Q2 2025 (Apr-Jun)</td>
+                <td>$9,635.63</td>
+                <td><span class="status-pending">Pending</span></td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- assets grid with updated values -->
+      <div class="assets-grid">
+        <!-- precious metals -->
+        <div class="asset-card">
+          <div class="asset-header">
+            <i class="fas fa-coins"></i>
+            <h3>Precious Metals</h3>
+          </div>
+          <div class="asset-content">
+            <div class="asset-item">
+              <span>Gold Bullion (12.4 kg)</span>
+              <span class="asset-value">$744,000</span>
+            </div>
+            <div class="asset-item">
+              <span>Silver Bars (85.5 kg)</span>
+              <span class="asset-value">$68,400</span>
+            </div>
+            <div class="asset-item">
+              <span>Platinum (3.2 kg)</span>
+              <span class="asset-value">$96,000</span>
+            </div>
+          </div>
+          <div class="asset-footer">
+            <span class="audit-badge"><i class="fas fa-check-circle"></i> Audited 24h ago</span>
+          </div>
+        </div>
+
+        <!-- gemstones & jewels -->
+        <div class="asset-card">
+          <div class="asset-header">
+            <i class="fas fa-gem"></i>
+            <h3>Gemstones</h3>
+          </div>
+          <div class="asset-content">
+            <div class="asset-item">
+              <span>Diamonds (12 pcs)</span>
+              <span class="asset-value">$4,200,000</span>
+            </div>
+            <div class="asset-item">
+              <span>Rubies (8 pcs)</span>
+              <span class="asset-value">$1,200,000</span>
+            </div>
+            <div class="asset-item">
+              <span>Sapphires (5 pcs)</span>
+              <span class="asset-value">$750,000</span>
+            </div>
+          </div>
+          <div class="asset-footer">
+            <span class="audit-badge"><i class="fas fa-certificate"></i> GIA certified</span>
+          </div>
+        </div>
+
+        <!-- digital assets -->
+        <div class="asset-card">
+          <div class="asset-header">
+            <i class="fas fa-digital-tiling"></i>
+            <h3>Digital Assets</h3>
+          </div>
+          <div class="asset-content">
+            <div class="asset-item">
+              <span>Bitcoin (4.25 BTC)</span>
+              <span class="asset-value">$297,500</span>
+            </div>
+            <div class="asset-item">
+              <span>Ethereum (42.8 ETH)</span>
+              <span class="asset-value">$85,600</span>
+            </div>
+            <div class="asset-item">
+              <span>USDC</span>
+              <span class="asset-value">$250,000</span>
+            </div>
+          </div>
+          <div class="asset-footer">
+            <span class="audit-badge"><i class="fas fa-shield"></i> Cold storage</span>
+          </div>
+        </div>
+
+        <!-- documents & deeds -->
+        <div class="asset-card">
+          <div class="asset-header">
+            <i class="fas fa-file-contract"></i>
+            <h3>Confidential Documents</h3>
+          </div>
+          <div class="asset-content">
+            <div class="asset-item">
+              <span>Property Deeds (Zurich)</span>
+              <span class="asset-value">$3,200,000</span>
+            </div>
+            <div class="asset-item">
+              <span>Property Deeds (Lugano)</span>
+              <span class="asset-value">$1,850,000</span>
+            </div>
+            <div class="asset-item">
+              <span>Corporate Bonds</span>
+              <span class="asset-value">$2,500,000</span>
+            </div>
+          </div>
+          <div class="asset-footer">
+            <span class="audit-badge"><i class="fas fa-lock"></i> Notarized copies</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- recent activity -->
+      <div class="activity-section">
+        <h2>Recent Vault Activity</h2>
+        <div class="activity-timeline">
+          <div class="activity-item">
+            <i class="fas fa-eye"></i>
+            <div class="activity-details">
+              <span class="activity-action">Vault accessed</span>
+              <span class="activity-time">Today, 09:24 UTC</span>
+            </div>
+            <span class="activity-location">Zurich · authorized</span>
+          </div>
+          <div class="activity-item">
+            <i class="fas fa-file-export"></i>
+            <div class="activity-details">
+              <span class="activity-action">Document viewed</span>
+              <span class="activity-time">Yesterday, 16:12 UTC</span>
+            </div>
+            <span class="activity-location">Singapore · deed_estate.pdf</span>
+          </div>
+          <div class="activity-item">
+            <i class="fas fa-exchange-alt"></i>
+            <div class="activity-details">
+              <span class="activity-action">Asset audit</span>
+              <span class="activity-time">3 days ago</span>
+            </div>
+            <span class="activity-location">All holdings verified</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- security recommendations -->
+      <div class="security-tips">
+        <i class="fas fa-shield-virus"></i>
+        <div class="tips-content">
+          <strong>Security recommendation:</strong> Enable hardware 2FA for your vault to receive 5% insurance discount.
+          <a href="#" class="tip-link">Configure now →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
