@@ -1,0 +1,439 @@
+/* ========================================
+   LOGIN.CSS - Aethel Vault Login Page
+   ======================================== */
+
+/* ---------- RESET & BASE STYLES ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #0a0c12 0%, #151e2a 100%);
+  color: #e0e0e0;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+
+
+
+/* ---------- HEADER & NAVIGATION ---------- */
+.site-header {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  background: rgba(5, 7, 12, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+.logo i {
+  color: #d4af37;
+  margin-right: 6px;
+}
+
+.logo .vault {
+  font-weight: 300;
+  color: #d4af37;
+  margin-left: 4px;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover {
+  color: #d4af37;
+  border-bottom-color: #d4af37;
+}
+
+.main-nav a.active {
+  color: #d4af37;
+  border-bottom-color: #d4af37;
+}
+
+.login-trigger {
+  background: rgba(212, 175, 55, 0.12);
+  padding: 8px 18px !important;
+  border-radius: 40px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 0;
+  }
+  
+  .logo {
+    margin-bottom: 10px;
+  }
+  
+  .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .main-nav a {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+  }
+}
+
+/* ---------- LOGIN SECTION ---------- */
+.login-section.full-height {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+  flex: 1;
+}
+
+.login-panel {
+  max-width: 520px;
+  margin: 0 auto;
+  background: rgba(23, 27, 36, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  padding: 50px 45px;
+  text-align: center;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212, 175, 55, 0.1) inset;
+}
+
+/* Animation */
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-scale {
+  animation: scaleIn 0.4s ease-out;
+}
+
+.vault-icon i {
+  font-size: 4rem;
+  color: #d4af37;
+  background: #1e2532;
+  padding: 20px;
+  border-radius: 60px;
+  margin-bottom: 20px;
+  border: 1px solid #2f3846;
+}
+
+.login-panel h2 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.secure-note {
+  color: #9aa5b5;
+  margin-bottom: 35px;
+  font-size: 0.95rem;
+  border: 1px dashed #3b4453;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 40px;
+}
+
+/* Error Message */
+.error-message {
+  background: rgba(231, 76, 60, 0.2);
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  text-align: center;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Form Elements */
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #0f131a;
+  border-radius: 60px;
+  margin-bottom: 22px;
+  border: 1px solid #2f3846;
+  padding: 0 20px;
+  transition: border-color 0.2s;
+}
+
+.input-group:focus-within {
+  border-color: #d4af37;
+}
+
+.input-group i {
+  color: #d4af37;
+  font-size: 1.2rem;
+  width: 30px;
+}
+
+.input-group input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 18px 10px;
+  font-size: 1.1rem;
+  color: #fff;
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: #5a6577;
+  font-weight: 300;
+}
+
+/* Login Options */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 25px;
+  font-size: 0.9rem;
+}
+
+.remember-me {
+  color: #9aa5b5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.remember-me input {
+  accent-color: #d4af37;
+  width: 16px;
+  height: 16px;
+}
+
+.forgot-password {
+  color: #d4af37;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+  color: #e5c158;
+}
+
+/* Login Button */
+.login-btn {
+  background: #d4af37;
+  border: none;
+  color: #0b0c10;
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding: 18px 30px;
+  border-radius: 60px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.login-btn:hover {
+  background: #e5c158;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* Login Footer */
+.login-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #2a3140;
+}
+
+.biometric-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #8e9aab;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+
+.biometric-option i {
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+/* Demo Credentials */
+.demo-credentials {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #2a3140;
+}
+
+.demo-credentials p {
+  color: #9aa5b5;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.credential-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.credential-list span {
+  background: #1e2532;
+  color: #d4af37;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  border: 1px solid #3a4457;
+  transition: all 0.2s;
+}
+
+.credential-list span:hover {
+  background: #d4af37;
+  color: #0b0c10;
+  border-color: #d4af37;
+}
+
+.demo-hint {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: #6f7c8f;
+}
+
+.demo-hint i {
+  color: #d4af37;
+  margin-right: 5px;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer.minimal {
+  padding: 20px 0;
+  text-align: center;
+  background: transparent;
+  border-top: 1px solid #20252e;
+  color: #7e8a9c;
+  font-size: 0.9rem;
+}
+
+/* ---------- LOGIN MOBILE RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .login-panel {
+    padding: 40px 25px;
+    margin: 20px;
+  }
+  
+  .login-panel h2 {
+    font-size: 1.8rem;
+  }
+  
+  .input-group input {
+    padding: 15px 10px;
+    font-size: 1rem;
+  }
+  
+  .login-options {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .login-btn {
+    font-size: 1.1rem;
+    padding: 15px 25px;
+  }
+  
+  .vault-icon i {
+    font-size: 3rem;
+    padding: 15px;
+  }
+  
+  .credential-list span {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-panel {
+    padding: 30px 20px;
+  }
+  
+  .login-panel h2 {
+    font-size: 1.5rem;
+  }
+  
+  .secure-note {
+    font-size: 0.8rem;
+  }
+  
+  .biometric-option {
+    flex-direction: column;
+    text-align: center;
+  }
+}
